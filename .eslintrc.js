@@ -1,0 +1,77 @@
+module.exports = {
+  root: true,
+  extends: [
+    '@react-native',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'react', 'react-native', 'react-hooks', 'prettier'],
+  rules: {
+    'max-len': [
+      'error',
+      {
+        code: 100,
+        tabWidth: 2,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+        ignoreComments: true,
+      },
+    ],
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 100,
+        tabWidth: 2,
+        useTabs: false,
+        semi: true,
+        singleQuote: true,
+        trailingComma: 'es5',
+        bracketSpacing: true,
+        bracketSameLine: false,
+        arrowParens: 'avoid',
+        endOfLine: 'auto',
+      },
+    ],
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
+    '@typescript-eslint/no-use-before-define': ['error', { functions: false }],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'react-native/no-unused-styles': 'error',
+    'react-native/split-platform-components': 'error',
+    'react-native/no-inline-styles': 'warn',
+    'react-native/no-color-literals': 'warn',
+    'react-native/no-raw-text': 'error',
+    'no-shadow': 'off',
+    'no-use-before-define': 'off',
+    'no-console': 'warn',
+    'no-debugger': 'error',
+    'no-alert': 'warn',
+    curly: ['error', 'all'],
+    quotes: ['error', 'single', { avoidEscape: true }],
+  },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
+  env: {
+    'react-native/react-native': true,
+  },
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+      typescript: {},
+    },
+  },
+};

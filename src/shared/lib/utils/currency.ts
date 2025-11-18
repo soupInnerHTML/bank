@@ -1,0 +1,18 @@
+export const formatCurrency = (
+  amount: number | string,
+  currency: string = 'USD',
+  locale: string = 'en-US',
+): string => {
+  const numericAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+
+  if (isNaN(numericAmount)) {
+    return '$0.00';
+  }
+
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(numericAmount);
+};
